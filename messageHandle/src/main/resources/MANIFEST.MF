@@ -1,0 +1,43 @@
+Manifest-Version: 1.0
+Class-Path: . messageHandle_lib/CL3Export.jar messageHandle_lib/CL3Non
+ export.jar messageHandle_lib/com.ibm.mq.commonservices.jar messageHan
+ dle_lib/com.ibm.mq.headers.jar messageHandle_lib/com.ibm.mq.jar messa
+ geHandle_lib/com.ibm.mq.jmqi.jar messageHandle_lib/com.ibm.mq.jms.Noj
+ ndi.jar messageHandle_lib/com.ibm.mq.pcf.jar messageHandle_lib/com.ib
+ m.mq.soap.jar messageHandle_lib/com.ibm.mq.tools.ras.jar messageHandl
+ e_lib/com.ibm.mqjms.jar messageHandle_lib/commons-configuration-1.9.j
+ ar messageHandle_lib/connector.jar messageHandle_lib/dhbcore.jar mess
+ ageHandle_lib/fscontext.jar messageHandle_lib/jms.jar messageHandle_l
+ ib/jndi.jar messageHandle_lib/jta.jar messageHandle_lib/ldap.jar mess
+ ageHandle_lib/providerutil.jar messageHandle_lib/rmm.jar messageHandl
+ e_lib/Imf_2.0.5.jar messageHandle_lib/hna-esb.jar messageHandle_lib/j
+ avassist-3.18.1-GA.jar messageHandle_lib/netty-3.2.5.Final.jar messag
+ eHandle_lib/opcnet-api-1.0-SNAPSHOT.jar messageHandle_lib/zkclient-0.
+ 1.jar messageHandle_lib/zookeeper-3.3.3.jar messageHandle_lib/jline-0
+ .9.94.jar messageHandle_lib/log4j-1.2.14.jar messageHandle_lib/fastjs
+ on-1.2.7.jar messageHandle_lib/druid-1.0.13.jar messageHandle_lib/jco
+ nsole.jar messageHandle_lib/tools.jar messageHandle_lib/h2-1.4.186.ja
+ r messageHandle_lib/mysql-connector-java-5.1.34.jar messageHandle_lib
+ /slf4j-api-1.7.5.jar messageHandle_lib/logback-classic-1.1.2.jar mess
+ ageHandle_lib/logback-core-1.1.2.jar messageHandle_lib/spring-jdbc-4.
+ 2.6.RELEASE.jar messageHandle_lib/spring-beans-4.2.6.RELEASE.jar mess
+ ageHandle_lib/spring-core-4.2.6.RELEASE.jar messageHandle_lib/commons
+ -logging-1.2.jar messageHandle_lib/spring-tx-4.2.6.RELEASE.jar messag
+ eHandle_lib/spring-context-4.2.6.RELEASE.jar messageHandle_lib/spring
+ -aop-4.2.6.RELEASE.jar messageHandle_lib/aopalliance-1.0.jar messageH
+ andle_lib/spring-expression-4.2.6.RELEASE.jar messageHandle_lib/sprin
+ g-test-4.2.6.RELEASE.jar messageHandle_lib/aspectjweaver-1.8.4.jar me
+ ssageHandle_lib/spring-orm-4.2.6.RELEASE.jar messageHandle_lib/spring
+ -jms-4.2.6.RELEASE.jar messageHandle_lib/spring-messaging-4.2.6.RELEA
+ SE.jar messageHandle_lib/hibernate-core-4.3.10.Final.jar messageHandl
+ e_lib/jboss-logging-3.1.3.GA.jar messageHandle_lib/jboss-logging-anno
+ tations-1.2.0.Beta1.jar messageHandle_lib/jboss-transaction-api_1.2_s
+ pec-1.0.0.Final.jar messageHandle_lib/hibernate-commons-annotations-4
+ .0.5.Final.jar messageHandle_lib/hibernate-jpa-2.1-api-1.0.0.Final.ja
+ r messageHandle_lib/antlr-2.7.7.jar messageHandle_lib/jandex-1.1.0.Fi
+ nal.jar messageHandle_lib/commons-io-2.4.jar messageHandle_lib/common
+ s-lang-2.6.jar messageHandle_lib/dom4j-1.6.1.jar messageHandle_lib/xm
+ l-apis-1.0.b2.jar messageHandle_lib/jaxen-1.1.6.jar messageHandle_lib
+ /jsch-0.1.53.jar messageHandle_lib/activemq-all-5.12.1.jar
+Main-Class: com.tsystems.si.aviation.imf.messageHandle.App
+

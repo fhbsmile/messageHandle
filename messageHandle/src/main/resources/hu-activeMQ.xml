@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd">
+	
+<!-- ActiveMQ 连接工厂 -->
+ <!-- 真正可以产生Connection的ConnectionFactory，由对应的 JMS服务厂商提供-->
+ <bean id="connectinFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+         <property name="userName" value="HNA_AODB"></property>
+         <property name="password" value="HNA0A1O2D9B0945"></property>
+         <property name="brokerURL" value="failover://(tcp://hnaesbmq.hnair.net:61616)?initialReconnectDelay=100" />
+         <!-- 
+         
+		 <property name="brokerURL" value="failover://(tcp://10.2.6.72:61616)?initialReconnectDelay=100" />
+		  -->
+ </bean>
+ 
+ <!-- Spring Caching连接工厂 -->
+ <!-- Spring用于管理真正的ConnectionFactory的ConnectionFactory -->  
+ <bean id="cachingConnectionFactory" class="org.springframework.jms.connection.CachingConnectionFactory">
+		  <!-- 目标ConnectionFactory对应真实的可以产生JMS Connection的ConnectionFactory -->  
+		  <property name="targetConnectionFactory" ref="connectinFactory"></property>
+		  <!-- Session缓存数量 -->
+		  <property name="sessionCacheSize" value="10"></property>
+ </bean>
+
+
+ 
+ <!-- Spring JMS Template 配置JMS模版 -->
+ <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+         <property name="connectionFactory" ref="cachingConnectionFactory" />
+         <property name="pubSubDomain" value="true"></property>   
+ </bean>
+
+   <bean id="huDynamicHandle" class="com.tsystems.si.aviation.imf.messageHandle.handles.hu.HuHandle" init-method="initHandle">            
+            <property name="handleName" value ="huDynamicHandle" /> 
+            <property name="handleMode" value ="PRD" /> 
+    </bean>
+    <bean id="dynamicFlightMessageOperator" class="com.tsystems.si.aviation.imf.messageHandle.hu.activeMQ.DynamicFlightMessageOperator">            
+    </bean>
+   <bean id="mqListener" class="com.tsystems.si.aviation.imf.messageHandle.hu.activeMQ.MQSimpleListener">            
+            <property name="listenerName" value ="DynamicFlightListener" /> 
+             <property name="bufferTime" value ="2160" /> 
+            <property name="dynamicFlightMessageOperator" ref="dynamicFlightMessageOperator"></property>
+    </bean>
+<bean id="mqListenerAdapter" class="org.springframework.jms.listener.adapter.MessageListenerAdapter">  
+        <property name="delegate" ref="mqListener" />  
+</bean>  
+         <!-- 消息监听容器 -->  
+    <bean id="mqListenerContainer"        class="org.springframework.jms.listener.DefaultMessageListenerContainer">  
+        <property name="connectionFactory" ref="cachingConnectionFactory" />  
+        <property name="destinationName" value="opcnet.activemq.topic.fltLegInfo" /> 
+        <property name="pubSubDomain" value="true" /> 
+        <property name="messageListener" ref="mqListenerAdapter" />  
+    </bean>
+    
+    
+
+</beans>

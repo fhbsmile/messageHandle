@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 27, 2016 10:40:00 AM by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="com.tsystems.si.aviation.imf.messageHandle.db.bean.OrgMessage" table="org_message" catalog="img" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="owner" type="string">
+            <column name="Owner" length="10" />
+        </property>
+        <property name="type" type="string">
+            <column name="Type" length="10" />
+        </property>
+        <property name="subtype" type="string">
+            <column name="Subtype" length="10" />
+        </property>
+        <property name="fullPath" type="string">
+            <column name="FullPath" length="500" />
+        </property>
+        <property name="fileName" type="string">
+            <column name="FileName" length="100" />
+        </property>
+        <property name="mvn" type="string">
+            <column name="Mvn" length="30" />
+        </property>
+        <property name="status" type="string">
+            <column name="Status" length="10" />
+        </property>
+        <property name="comments" type="string">
+            <column name="Comments" length="65535" />
+        </property>
+        <property name="content" type="string">
+            <column name="Content" length="65535" />
+        </property>
+        <property name="generateDateTime" type="timestamp">
+            <column name="GenerateDateTime" length="19" />
+        </property>
+        <property name="createDateTime" type="timestamp">
+            <column name="CreateDateTime" length="19" />
+        </property>
+        <property name="updateDateTime" type="timestamp">
+            <column name="UpdateDateTime" length="19" />
+        </property>
+        <set name="imfMessages" table="imf_message" inverse="true" lazy="true" fetch="select" cascade="save-update">
+            <key>
+                <column name="MessageID" />
+            </key>
+            <one-to-many class="com.tsystems.si.aviation.imf.messageHandle.db.bean.ImfMessage" />
+        </set>
+    </class>
+</hibernate-mapping>

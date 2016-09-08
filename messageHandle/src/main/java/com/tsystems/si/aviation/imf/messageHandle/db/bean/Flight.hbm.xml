@@ -1,0 +1,231 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 27, 2016 10:40:00 AM by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="com.tsystems.si.aviation.imf.messageHandle.db.bean.Flight" table="flight" catalog="img" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="flightScheduledDate" type="date">
+            <column name="FlightScheduledDate" length="10" not-null="true" />
+        </property>
+        <property name="flightNumber" type="string">
+            <column name="FlightNumber" length="10" not-null="true" />
+        </property>
+        <property name="flightDirection" type="string">
+            <column name="FlightDirection" length="2" not-null="true" />
+        </property>
+        <property name="airlineIatacode" type="string">
+            <column name="AirlineIATACode" length="2" />
+        </property>
+        <property name="airlineIcaocode" type="string">
+            <column name="AirlineICAOCode" length="3" />
+        </property>
+        <property name="aircraftIatacode" type="string">
+            <column name="AircraftIATACode" length="10" />
+        </property>
+        <property name="aircraftIcaocode" type="string">
+            <column name="AircraftICAOCode" length="10" />
+        </property>
+        <property name="flightServiceType" type="string">
+            <column name="FlightServiceType" length="4" />
+        </property>
+        <property name="flightCountryType" type="string">
+            <column name="FlightCountryType" length="2" />
+        </property>
+        <property name="flightScheduledDateTime" type="timestamp">
+            <column name="FlightScheduledDateTime" length="19" />
+        </property>
+        <property name="registration" type="string">
+            <column name="Registration" length="10" />
+        </property>
+        <property name="callSign" type="string">
+            <column name="CallSign" length="10" />
+        </property>
+        <property name="codeShareFlight" type="string">
+            <column name="CodeShareFlight" length="50" />
+        </property>
+        <property name="iataoriginAirport" type="string">
+            <column name="IATAOriginAirport" length="3" />
+        </property>
+        <property name="iatapreviousAirport" type="string">
+            <column name="IATAPreviousAirport" length="3" />
+        </property>
+        <property name="iataviaAirport" type="string">
+            <column name="IATAViaAirport" length="3" />
+        </property>
+        <property name="iatanextAirport" type="string">
+            <column name="IATANextAirport" length="3" />
+        </property>
+        <property name="iatadestinationAirport" type="string">
+            <column name="IATADestinationAirport" length="3" />
+        </property>
+        <property name="route" type="string">
+            <column name="Route" length="50" />
+        </property>
+        <property name="scheduledPreviousAirportDepartureDateTime" type="timestamp">
+            <column name="ScheduledPreviousAirportDepartureDateTime" length="19" />
+        </property>
+        <property name="estimatedPreviousAirportDepartureDateTime" type="timestamp">
+            <column name="EstimatedPreviousAirportDepartureDateTime" length="19" />
+        </property>
+        <property name="actualPreviousAirportDepartureDateTime" type="timestamp">
+            <column name="ActualPreviousAirportDepartureDateTime" length="19" />
+        </property>
+        <property name="scheduledLandingDateTime" type="timestamp">
+            <column name="ScheduledLandingDateTime" length="19" />
+        </property>
+        <property name="estimatedLandingDateTime" type="timestamp">
+            <column name="EstimatedLandingDateTime" length="19" />
+        </property>
+        <property name="actualLandingDateTime" type="timestamp">
+            <column name="ActualLandingDateTime" length="19" />
+        </property>
+        <property name="scheduledOnBlockDateTime" type="timestamp">
+            <column name="ScheduledOnBlockDateTime" length="19" />
+        </property>
+        <property name="estimatedOnBlockDateTime" type="timestamp">
+            <column name="EstimatedOnBlockDateTime" length="19" />
+        </property>
+        <property name="actualOnBlockDateTime" type="timestamp">
+            <column name="ActualOnBlockDateTime" length="19" />
+        </property>
+        <property name="scheduledOffBlockDateTime" type="timestamp">
+            <column name="ScheduledOffBlockDateTime" length="19" />
+        </property>
+        <property name="estimatedOffBlockDateTime" type="timestamp">
+            <column name="EstimatedOffBlockDateTime" length="19" />
+        </property>
+        <property name="actualOffBlockDateTime" type="timestamp">
+            <column name="ActualOffBlockDateTime" length="19" />
+        </property>
+        <property name="scheduledTakeOffDateTime" type="timestamp">
+            <column name="ScheduledTakeOffDateTime" length="19" />
+        </property>
+        <property name="estimatedTakeOffDateTime" type="timestamp">
+            <column name="EstimatedTakeOffDateTime" length="19" />
+        </property>
+        <property name="actualTakeOffDateTime" type="timestamp">
+            <column name="ActualTakeOffDateTime" length="19" />
+        </property>
+        <property name="scheduledFlyTime" type="java.lang.Integer">
+            <column name="ScheduledFlyTime" />
+        </property>
+        <property name="estimatedFlyTime" type="java.lang.Integer">
+            <column name="EstimatedFlyTime" />
+        </property>
+        <property name="actualDoorOpenDateTime" type="timestamp">
+            <column name="ActualDoorOpenDateTime" length="19" />
+        </property>
+        <property name="actualDoorCloseDateTime" type="timestamp">
+            <column name="ActualDoorCloseDateTime" length="19" />
+        </property>
+        <property name="actualOnBridgeDateTime" type="timestamp">
+            <column name="ActualOnBridgeDateTime" length="19" />
+        </property>
+        <property name="actualOffBridgeDateTime" type="timestamp">
+            <column name="ActualOffBridgeDateTime" length="19" />
+        </property>
+        <property name="bestKnownDateTime" type="timestamp">
+            <column name="BestKnownDateTime" length="19" />
+        </property>
+        <property name="flightStatus" type="string">
+            <column name="FlightStatus" length="8" />
+        </property>
+        <property name="operationStatus" type="string">
+            <column name="OperationStatus" length="8" />
+        </property>
+        <property name="delayReasonCode" type="string">
+            <column name="delayReasonCode" length="8" />
+        </property>
+        <property name="delayReasonText" type="string">
+            <column name="delayReasonText" length="200" />
+        </property>
+        <property name="publicTextComment" type="string">
+            <column name="PublicTextComment" length="200" />
+        </property>
+        <property name="createReason" type="string">
+            <column name="CreateReason" length="30" />
+        </property>
+        <property name="diversionAirportIatacode" type="string">
+            <column name="DiversionAirportIATACode" length="3" />
+        </property>
+        <property name="diversionAirportIcaocode" type="string">
+            <column name="DiversionAirportICAOCode" length="4" />
+        </property>
+        <property name="changeLandingAirportIatacode" type="string">
+            <column name="ChangeLandingAirportIATACode" length="3" />
+        </property>
+        <property name="changeLandingAirportIcaocode" type="string">
+            <column name="ChangeLandingAirportICAOCode" length="4" />
+        </property>
+        <property name="displayCode" type="string">
+            <column name="DisplayCode" length="2" />
+        </property>
+        <property name="isTransitFlight" type="string">
+            <column name="IsTransitFlight" length="2" />
+        </property>
+        <property name="isOverNightFlight" type="string">
+            <column name="IsOverNightFlight" length="2" />
+        </property>
+        <property name="isVipflight" type="string">
+            <column name="IsVIPFlight" length="2" />
+        </property>
+        <property name="vipcomment" type="string">
+            <column name="VIPComment" length="400" />
+        </property>
+        <property name="stand" type="string">
+            <column name="Stand" length="20" />
+        </property>
+        <property name="groundMovement" type="string">
+            <column name="GroundMovement" length="100" />
+        </property>
+        <property name="gate" type="string">
+            <column name="Gate" length="20" />
+        </property>
+        <property name="gateStatus" type="string">
+            <column name="GateStatus" length="20" />
+        </property>
+        <property name="scheduledGateStartDateTime" type="timestamp">
+            <column name="ScheduledGateStartDateTime" length="19" />
+        </property>
+        <property name="scheduledGateEndDateTime" type="timestamp">
+            <column name="ScheduledGateEndDateTime" length="19" />
+        </property>
+        <property name="actualGateStartDateTime" type="timestamp">
+            <column name="ActualGateStartDateTime" length="19" />
+        </property>
+        <property name="actualGateEndDateTime" type="timestamp">
+            <column name="ActualGateEndDateTime" length="19" />
+        </property>
+        <property name="baggageReclaim" type="string">
+            <column name="BaggageReclaim" length="20" />
+        </property>
+        <property name="baggageMakeup" type="string">
+            <column name="BaggageMakeup" length="20" />
+        </property>
+        <property name="checkInDesk" type="string">
+            <column name="CheckInDesk" length="20" />
+        </property>
+        <property name="checkInPassengerCount" type="java.lang.Integer">
+            <column name="CheckInPassengerCount" />
+        </property>
+        <property name="securityCheckPassengerCount" type="java.lang.Integer">
+            <column name="SecurityCheckPassengerCount" />
+        </property>
+        <property name="onboardPassengerCount" type="java.lang.Integer">
+            <column name="OnboardPassengerCount" />
+        </property>
+        <property name="createDateTime" type="timestamp">
+            <column name="CreateDateTime" length="19" />
+        </property>
+        <property name="updateDateTime" type="timestamp">
+            <column name="UpdateDateTime" length="19" />
+        </property>
+        <property name="fuid" type="string">
+            <column name="Fuid" length="40" />
+        </property>
+    </class>
+</hibernate-mapping>

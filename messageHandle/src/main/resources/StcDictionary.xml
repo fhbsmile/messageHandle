@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+	
+
+		<bean id="stcDictionary" class="com.tsystems.si.aviation.imf.messageHandle.handles.tools.StcDictionary">
+		<!-- 为属性赋值 -->
+		<property name="stcMap">
+				<map>
+				<entry key="A" value="H/Y"></entry>
+				<entry key="C" value="L/W"></entry>
+				<entry key="E" value="J/B"></entry>
+				<entry key="F" value="H/Z"></entry>
+				<entry key="H" value="H/G"></entry>
+				<entry key="J" value="W/Z"></entry>
+				<entry key="K" value="K/L"></entry>
+				<entry key="P" value="N/M"></entry>
+				<entry key="T" value="S/F"></entry>
+				<entry key="W" value="O/M"></entry>
+				<entry key="X" value="Q/B"></entry>
+				<entry key="G" value="C/B"></entry>
+				<entry key="D" value="Z/P"></entry>
+				<entry key="O" value="U/H"></entry>
+				<entry key="L" value="O/F"></entry>
+				</map>
+		</property>
+	</bean>
+
+</beans>

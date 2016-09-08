@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 27, 2016 10:40:00 AM by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="com.tsystems.si.aviation.imf.messageHandle.db.bean.RefAirport" table="ref_airport" catalog="img" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="airportIatacode" type="string">
+            <column name="AirportIATACode" length="3" />
+        </property>
+        <property name="airportIcaocode" type="string">
+            <column name="AirportICAOCode" length="4" />
+        </property>
+        <property name="airportChineseShortName" type="string">
+            <column name="AirportChineseShortName" length="200" />
+        </property>
+        <property name="airportChineseFullName" type="string">
+            <column name="AirportChineseFullName" length="200" />
+        </property>
+        <property name="airportEnglishShortName" type="string">
+            <column name="AirportEnglishShortName" length="200" />
+        </property>
+        <property name="airportEnglishFullName" type="string">
+            <column name="AirportEnglishFullName" length="200" />
+        </property>
+        <property name="airportRoutingName" type="string">
+            <column name="AirportRoutingName" length="10" />
+        </property>
+        <property name="airportCountry" type="string">
+            <column name="AirportCountry" length="20" />
+        </property>
+        <property name="airportCountryType" type="string">
+            <column name="AirportCountryType" length="10" />
+        </property>
+        <property name="airportCity" type="string">
+            <column name="AirportCity" length="20" />
+        </property>
+        <property name="airportRegion" type="string">
+            <column name="AirportRegion" length="10" />
+        </property>
+        <property name="airportTimezone" type="string">
+            <column name="AirportTimezone" length="10" />
+        </property>
+        <property name="airportDistance" type="java.lang.Integer">
+            <column name="AirportDistance" />
+        </property>
+        <property name="airportdescription" type="string">
+            <column name="Airportdescription" length="200" />
+        </property>
+        <property name="createDateTime" type="timestamp">
+            <column name="CreateDateTime" length="19" />
+        </property>
+        <property name="updateDateTime" type="timestamp">
+            <column name="UpdateDateTime" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

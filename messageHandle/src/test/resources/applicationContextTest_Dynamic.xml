@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+	
+	
+		<!-- 配置数据源 -->
+	<!-- 导入资源文件
+	<context:property-placeholder location="classpath:db_local.properties"/>
+	-->
+	<import resource="applicationContext_DB.xml"/>
+	<import resource="AirportDictionary.xml"/>
+	 <import resource="StcDictionary.xml"/>
+	<!-- -->
+    <import resource="hu-activeMQTest.xml"/>
+     
+     <!-- 
+    <import resource="dubboRequestSchedule.xml"/>
+     <bean id="requestSchedule" class="com.tsystems.si.aviation.imf.messageHandle.request.schedule。RequestSchedule">            
+            <property name="focFltInfoApi" ref ="focFltInfoApi" /> 
+    </bean>
+      <bean id="requestSchedule" class="com.tsystems.si.aviation.imf.messageHandle.request.schedule.RequestSchedule">            
+            <property name="focFltInfoApi" ref ="focFltInfoApi" /> 
+    </bean>
+    <bean id="huScheduleHandle" class="com.tsystems.si.aviation.imf.messageHandle.handles.hu.HuHandle">            
+            <property name="handleName" value ="huScheduleHandle" /> 
+    </bean>
+     <bean id="requestScheduleMessageOperator" class="com.tsystems.si.aviation.imf.messageHandle.hu.request.change.RequestScheduleMessageOperator">            
+     </bean>
+     -->
+      <!--  
+    <import resource="dubboRequestChange.xml"/>
+      
+    <bean id="requestChange" class="com.tsystems.si.aviation.imf.messageHandle.request.change.RequestChange">            
+         <property name="fltLegsChangeApi" ref ="fltLegsChangeApi" /> 
+    </bean>
+    
+     <bean id="huChangeHandle" class="com.tsystems.si.aviation.imf.messageHandle.handles.hu.HuHandle">            
+            <property name="handleName" value ="huChangeHandle" /> 
+    </bean>
+    <bean id="requestChangeMessageOperator" class="com.tsystems.si.aviation.imf.messageHandle.hu.request.change.RequestChangeMessageOperator">            
+    </bean>
+    
+-->
+   
+    
+</beans>

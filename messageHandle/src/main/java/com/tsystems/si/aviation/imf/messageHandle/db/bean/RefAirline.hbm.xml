@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 27, 2016 10:40:00 AM by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="com.tsystems.si.aviation.imf.messageHandle.db.bean.RefAirline" table="ref_airline" catalog="img" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="airlineIatacode" type="string">
+            <column name="AirlineIATACode" length="3" />
+        </property>
+        <property name="airlineIcaocode" type="string">
+            <column name="AirlineICAOCode" length="3" />
+        </property>
+        <property name="airlineName" type="string">
+            <column name="AirlineName" length="50" />
+        </property>
+        <property name="airlineHomeCountry" type="string">
+            <column name="AirlineHomeCountry" length="10" />
+        </property>
+        <property name="airlineAllianceGroup" type="string">
+            <column name="AirlineAllianceGroup" length="10" />
+        </property>
+        <property name="airlineDescription" type="string">
+            <column name="AirlineDescription" length="100" />
+        </property>
+        <property name="airlineHandler" type="string">
+            <column name="AirlineHandler" length="10" />
+        </property>
+        <property name="createDateTime" type="timestamp">
+            <column name="CreateDateTime" length="19" />
+        </property>
+        <property name="updateDateTime" type="timestamp">
+            <column name="UpdateDateTime" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

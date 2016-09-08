@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 27, 2016 10:40:00 AM by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="com.tsystems.si.aviation.imf.messageHandle.db.bean.ImfMessage" table="imf_message" catalog="img" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="orgMessage" class="com.tsystems.si.aviation.imf.messageHandle.db.bean.OrgMessage" fetch="select">
+            <column name="MessageID" />
+        </many-to-one>
+        <property name="fileName" type="string">
+            <column name="FileName" length="100" />
+        </property>
+        <property name="xmlMessage" type="string">
+            <column name="XmlMessage" length="5000" />
+        </property>
+        <property name="status" type="string">
+            <column name="Status" length="2" />
+        </property>
+        <property name="operationStatus" type="string">
+            <column name="OperationStatus" length="10" />
+        </property>
+        <property name="reason" type="string">
+            <column name="Reason" length="5000" />
+        </property>
+        <property name="flightNumber" type="string">
+            <column name="FlightNumber" length="10" />
+        </property>
+        <property name="flightDirection" type="string">
+            <column name="FlightDirection" length="2" />
+        </property>
+        <property name="flightScheduledDate" type="date">
+            <column name="FlightScheduledDate" length="10" />
+        </property>
+        <property name="flightScheduledDateTime" type="timestamp">
+            <column name="FlightScheduledDateTime" length="19" />
+        </property>
+        <property name="registration" type="string">
+            <column name="Registration" length="10" />
+        </property>
+        <property name="scheduledPreviousAirportDepartureDateTime" type="timestamp">
+            <column name="ScheduledPreviousAirportDepartureDateTime" length="19" />
+        </property>
+        <property name="estimatedPreviousAirportDepartureDateTime" type="timestamp">
+            <column name="EstimatedPreviousAirportDepartureDateTime" length="19" />
+        </property>
+        <property name="actualPreviousAirportDepartureDateTime" type="timestamp">
+            <column name="ActualPreviousAirportDepartureDateTime" length="19" />
+        </property>
+        <property name="scheduledLandingDateTime" type="timestamp">
+            <column name="ScheduledLandingDateTime" length="19" />
+        </property>
+        <property name="estimatedLandingDateTime" type="timestamp">
+            <column name="EstimatedLandingDateTime" length="19" />
+        </property>
+        <property name="actualLandingDateTime" type="timestamp">
+            <column name="ActualLandingDateTime" length="19" />
+        </property>
+        <property name="scheduledOnBlockDateTime" type="timestamp">
+            <column name="ScheduledOnBlockDateTime" length="19" />
+        </property>
+        <property name="estimatedOnBlockDateTime" type="timestamp">
+            <column name="EstimatedOnBlockDateTime" length="19" />
+        </property>
+        <property name="actualOnBlockDateTime" type="timestamp">
+            <column name="ActualOnBlockDateTime" length="19" />
+        </property>
+        <property name="scheduledOffBlockDateTime" type="timestamp">
+            <column name="ScheduledOffBlockDateTime" length="19" />
+        </property>
+        <property name="estimatedOffBlockDateTime" type="timestamp">
+            <column name="EstimatedOffBlockDateTime" length="19" />
+        </property>
+        <property name="actualOffBlockDateTime" type="timestamp">
+            <column name="ActualOffBlockDateTime" length="19" />
+        </property>
+        <property name="scheduledTakeOffDateTime" type="timestamp">
+            <column name="ScheduledTakeOffDateTime" length="19" />
+        </property>
+        <property name="estimatedTakeOffDateTime" type="timestamp">
+            <column name="EstimatedTakeOffDateTime" length="19" />
+        </property>
+        <property name="actualTakeOffDateTime" type="timestamp">
+            <column name="ActualTakeOffDateTime" length="19" />
+        </property>
+        <property name="scheduledNextAirportArrivalDateTime" type="timestamp">
+            <column name="scheduledNextAirportArrivalDateTime" length="19" />
+        </property>
+        <property name="estimatedNextAirportDepartureDateTime" type="timestamp">
+            <column name="EstimatedNextAirportDepartureDateTime" length="19" />
+        </property>
+        <property name="actualNextAirportDepartureDateTime" type="timestamp">
+            <column name="ActualNextAirportDepartureDateTime" length="19" />
+        </property>
+        <property name="createDateTime" type="timestamp">
+            <column name="CreateDateTime" length="19" />
+        </property>
+        <property name="updateDateTime" type="timestamp">
+            <column name="UpdateDateTime" length="19" />
+        </property>
+        <property name="sendDateTime" type="timestamp">
+            <column name="SendDateTime" length="19" />
+        </property>
+        <property name="owner" type="string">
+            <column name="Owner" length="10" />
+        </property>
+        <property name="sender" type="string">
+            <column name="Sender" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

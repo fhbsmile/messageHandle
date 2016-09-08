@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+	<!--default client setting -->
+	<property resource="imf_client.properties" />
+	<appender name="hu_dynamicflight_Rolling" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${APP_USER_HOME}/logs/hu_dynamic_message.txt</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- rollover daily -->
+			<fileNamePattern>${APP_USER_HOME}/logs/%d{dd}/hu_dynamic_message-%d{yyyy-MM-dd}-%i.zip</fileNamePattern>
+			<maxHistory>10</maxHistory>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<!-- or whenever the file size reaches 100MB -->
+				<maxFileSize>${IMFLOG_SIZE}</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	
+		<appender name="hu_requestflight_Rolling" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${APP_USER_HOME}/logs/hu_request_message.txt</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- rollover daily -->
+			<fileNamePattern>${APP_USER_HOME}/logs/%d{dd}/hu_request_message-%d{yyyy-MM-dd}-%i.zip</fileNamePattern>
+			<maxHistory>10</maxHistory>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<!-- or whenever the file size reaches 100MB -->
+				<maxFileSize>${IMFLOG_SIZE}</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="hu_requestchange_Rolling" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${APP_USER_HOME}/logs/hu_change_message.txt</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- rollover daily -->
+			<fileNamePattern>${APP_USER_HOME}/logs/%d{dd}/hu_change_message-%d{yyyy-MM-dd}-%i.zip</fileNamePattern>
+			<maxHistory>10</maxHistory>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<!-- or whenever the file size reaches 100MB -->
+				<maxFileSize>${IMFLOG_SIZE}</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="hu_fus_Rolling" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${APP_USER_HOME}/logs/hu_fus.txt</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- rollover daily -->
+			<fileNamePattern>${APP_USER_HOME}/logs/%d{dd}/hu_fus-%d{yyyy-MM-dd}-%i.zip</fileNamePattern>
+			<maxHistory>10</maxHistory>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<!-- or whenever the file size reaches 100MB -->
+				<maxFileSize>${IMFLOG_SIZE}</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+		<appender name="hu_all_Rolling" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${APP_USER_HOME}/logs/all.txt</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- rollover daily -->
+			<fileNamePattern>${APP_USER_HOME}/logs/%d{dd}/all-%d{yyyy-MM-dd}-%i.zip</fileNamePattern>
+			<maxHistory>10</maxHistory>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<!-- or whenever the file size reaches 100MB -->
+				<maxFileSize>${IMFLOG_SIZE}</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+			<appender name="hu_allp_Rolling" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${APP_USER_HOME}/logs/hu_all.txt</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- rollover daily -->
+			<fileNamePattern>${APP_USER_HOME}/logs/%d{dd}/hu_all-%d{yyyy-MM-dd}-%i.zip</fileNamePattern>
+			<maxHistory>10</maxHistory>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<!-- or whenever the file size reaches 100MB -->
+				<maxFileSize>${IMFLOG_SIZE}</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	  <appender name="STDOUT"
+    class="ch.qos.logback.core.ConsoleAppender">
+    <!-- encoders are assigned by default the type
+         ch.qos.logback.classic.encoder.PatternLayoutEncoder -->
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+   	<logger name="com.tsystems.si.aviation.imf.messageHandle.hu.activeMQ.MQSimpleListener" level="DEBUG">
+ 		<appender-ref ref="hu_dynamicflight_Rolling" />
+ 	</logger>
+ 	
+ 	<logger name="com.tsystems.si.aviation.imf.messageHandle.hu.request.schedule" level="DEBUG">
+ 		<appender-ref ref="hu_requestflight_Rolling" />
+ 	</logger>
+ 	
+ 	 	<logger name="com.tsystems.si.aviation.imf.messageHandle.hu.request.change" level="DEBUG">
+ 		<appender-ref ref="hu_requestchange_Rolling" />
+ 	</logger>
+ 	 	 	<logger name="com.tsystems.si.aviation.imf.messageHandle.imfclient.fus" level="DEBUG">
+ 		<appender-ref ref="hu_fus_Rolling" />
+ 	</logger>
+
+ 	<logger name="com.tsystems.si.aviation.imf.messageHandle" level="DEBUG">
+ 		<appender-ref ref="hu_allp_Rolling" />
+ 	</logger>
+	<root level="DEBUG">
+	 <appender-ref ref="hu_all_Rolling" />
+		 <appender-ref ref="STDOUT" />
+	</root>
+
+</configuration>
+

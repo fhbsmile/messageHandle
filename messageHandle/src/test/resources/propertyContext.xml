@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+
+	
+	<util:properties id="huProperties">
+
+	<prop key="timeZone">UTC</prop>
+	<prop key="localTimeZone">GMT+8</prop>
+	<prop key="timeZoneOffset">8</prop>
+	<prop key="yearPrefix">20</prop>
+	<prop key="default_baseAirportIATA">HAK</prop>
+	<prop key="default_baseAirportICAO">ZJHK</prop>
+	<prop key="default_beforeMin">360</prop>
+	<prop key="default_afterMin">300</prop>
+	<prop key="default_flyMins">180</prop>
+	<prop key="default_templateXMLName">default_template.xml</prop>
+	<prop key="default_filterXSLName"></prop>
+	<prop key="default_statusNew_hu">N</prop>
+	<prop key="default_statusMod_hu">A</prop>
+	<prop key="default_statusCnl_hu">N</prop>
+	<prop key="default_statusDel_hu">N</prop>
+	<prop key="default_statusDly_hu">N</prop>
+	<prop key="default_createReason_hu">HU Interface</prop>
+	<prop key="default_handleMode_hu">PRD</prop>
+
+	
+	</util:properties>
+	<util:constant static-field="8" id='timeZoneOffset' />
+</beans>

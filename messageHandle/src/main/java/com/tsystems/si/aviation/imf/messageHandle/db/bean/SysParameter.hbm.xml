@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 27, 2016 10:40:00 AM by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="com.tsystems.si.aviation.imf.messageHandle.db.bean.SysParameter" table="sys_parameter" catalog="img" optimistic-lock="version">
+        <id name="spName" type="string">
+            <column name="SpName" length="100" />
+            <generator class="assigned" />
+        </id>
+        <property name="spDescription" type="string">
+            <column name="SpDescription" length="500" />
+        </property>
+        <property name="spValue1" type="string">
+            <column name="SpValue1" length="100" />
+        </property>
+        <property name="spValue2" type="string">
+            <column name="SpValue2" length="100" />
+        </property>
+        <property name="spValue3" type="string">
+            <column name="SpValue3" length="100" />
+        </property>
+        <property name="spValue4" type="string">
+            <column name="SpValue4" length="100" />
+        </property>
+        <property name="createUser" type="string">
+            <column name="CreateUser" length="100" />
+        </property>
+        <property name="updateUser" type="string">
+            <column name="UpdateUser" length="100" />
+        </property>
+        <property name="createDateTime" type="timestamp">
+            <column name="CreateDateTime" length="19" />
+        </property>
+        <property name="updateDateTime" type="timestamp">
+            <column name="UpdateDateTime" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>
