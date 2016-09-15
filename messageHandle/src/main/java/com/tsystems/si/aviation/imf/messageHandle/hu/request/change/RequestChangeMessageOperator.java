@@ -163,9 +163,9 @@ public class RequestChangeMessageOperator {
 					}else if(changeType.equals("Delay")){
 						logger.info("MessageType:{},update OperationStatus:{}",new Object[]{changeType,"DELET"});
 						comments.append("update OperationStatus:").append("DELET").append(System.lineSeparator());
-						comments.append("update ELDT:").append(estimatedLandingDateTimeString).append(System.lineSeparator());
+						comments.append("ignore ELDT:").append(estimatedLandingDateTimeString).append(System.lineSeparator());
 						fxbean.setOperationStatus("DELET");
-						fxbean.setEstimatedLandingDateTime(estimatedLandingDateTime);
+						//fxbean.setEstimatedLandingDateTime(estimatedLandingDateTime);
 						fxbean.setXmlStatus(huChangeHandle.getStatusDly());
 					    xmlMessage =huChangeHandle.createImfMessage(fxbean);
 					}else if(changeType.equals("ChangeDelay")){
@@ -250,9 +250,9 @@ public class RequestChangeMessageOperator {
 					}else if(changeType.equals("Delay")){
 						logger.info("MessageType:{},update OperationStatus:{}",new Object[]{changeType,"DELET"});
 						comments.append("update OperationStatus:").append("Delay").append(System.lineSeparator());
-						comments.append("update ETOT:").append(estimatedTakeOffDateTimeString).append(System.lineSeparator());
+						comments.append("ignore ETOT:").append(estimatedTakeOffDateTimeString).append(System.lineSeparator());
 						fxbean.setOperationStatus("DELET");
-						fxbean.setEstimatedTakeOffDateTime(estimatedTakeOffDateTime);
+						//fxbean.setEstimatedTakeOffDateTime(estimatedTakeOffDateTime);
 						fxbean.setXmlStatus(huChangeHandle.getStatusDly());
 					    xmlMessage =huChangeHandle.createImfMessage(fxbean);
 					}else if(changeType.equals("ChangeDelay")){

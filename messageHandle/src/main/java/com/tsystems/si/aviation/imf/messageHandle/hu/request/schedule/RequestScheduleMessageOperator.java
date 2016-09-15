@@ -319,8 +319,8 @@ public class RequestScheduleMessageOperator {
 			}else if(status.equalsIgnoreCase("DEL")){
 				logger.info("Message ststus:{},update OperationStatus:{},update ELDT:{}",new Object[]{status,"DELET",arrStopEstimatedLandingDateTimeString});
 				comments.append("Update OperationStatus:").append("DELET").append(System.lineSeparator());
-				comments.append("Update ELDT:").append(arrStopEstimatedLandingDateTimeString).append(System.lineSeparator());
-				fxbean.setEstimatedLandingDateTime(arrStopEstimatedLandingDateTime);					
+				comments.append("ignore ELDT:").append(arrStopEstimatedLandingDateTimeString).append(System.lineSeparator());
+				//fxbean.setEstimatedLandingDateTime(arrStopEstimatedLandingDateTime);					
 				fxbean.setOperationStatus("DELET");
 				fxbean.setXmlStatus(huScheduleHandle.getStatusDly());
 				xmlMessage =huScheduleHandle.createImfMessage(fxbean);
@@ -497,8 +497,8 @@ public class RequestScheduleMessageOperator {
 			}else if(status.equalsIgnoreCase("DEL")){
 				logger.info("Message ststus:{},update OperationStatus:{}, update ETOT:{}",new Object[]{status,"DELET",depStopEstimatedTakeOffDateTimeString});				
 				comments.append("Update OperationStatus:").append("DELET").append(System.lineSeparator());
-				comments.append("update ETOT:").append(depStopEstimatedTakeOffDateTimeString).append(System.lineSeparator());
-				fxbean.setEstimatedTakeOffDateTime(depStopEstimatedTakeOffDateTime);					
+				comments.append("ignore ETOT:").append(depStopEstimatedTakeOffDateTimeString).append(System.lineSeparator());
+				//fxbean.setEstimatedTakeOffDateTime(depStopEstimatedTakeOffDateTime);					
 				fxbean.setOperationStatus("DELET");
 				fxbean.setXmlStatus(huScheduleHandle.getStatusDly());
 				xmlMessage =huScheduleHandle.createImfMessage(fxbean);

@@ -292,7 +292,10 @@ public class DynamicFlightMessageOperator {
 					comments.append("Update ATOTout:").append(depStopActualTakeOffDateTimeString).append(System.lineSeparator());
 					comments.append("Update ELDT:").append(arrStopEstimatedLandingDateTimeString).append(System.lineSeparator());
 					fxbean.setActualPreviousAirportDepartureDateTime(depStopActualTakeOffDateTime);
-					fxbean.setEstimatedLandingDateTime(arrStopEstimatedLandingDateTime);
+					if(arrStopEstimatedLandingDateTime!=null && arrStopEstimatedLandingDateTime.after(new Date())){
+						fxbean.setEstimatedLandingDateTime(arrStopEstimatedLandingDateTime);
+					}
+					
 					fxbean.setXmlStatus(huDynamicHandle.getStatusMod());
 					xmlMessage =huDynamicHandle.createImfMessage(fxbean);
 					
