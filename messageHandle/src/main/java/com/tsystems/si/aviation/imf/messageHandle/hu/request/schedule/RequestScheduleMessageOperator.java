@@ -255,7 +255,17 @@ public class RequestScheduleMessageOperator {
 					comments.append(" Unknow status, add nothing!").append(System.lineSeparator());
 					  xmlMessage =huScheduleHandle.createImfMessage(fxbean);
 				}
-               
+                //当出现一天两班的情况时，并且晚上的那个航班不存在，则不发送晚上的那个航班
+                Map<String,Object> params = new HashMap<String,Object>();
+    			params.put("flightNumber", flightNumber);
+    			params.put("direction", "A");
+    			params.put("flightScheduledDate", arrStopSchedluedLandingDateTime);
+    			List<Flight> flightss=flightService.getFlightByFlightNumberWithDate(params);
+                if(!flightss.isEmpty() && xmlMessage!=null){
+                	xmlMessage.setStatus("N");
+                	logger.info("For one day two flight,ignore the flight which haven't has a plan yet");
+					comments.append("For one day two flight,ignore the flight which haven't has a plan yet ").append("set status N").append(System.lineSeparator());
+                }
                 logger.info("ImfMessage:\n{}",xmlMessage);
 				if(xmlMessage!=null){
 					xmlMessage.setOwner("HU");
