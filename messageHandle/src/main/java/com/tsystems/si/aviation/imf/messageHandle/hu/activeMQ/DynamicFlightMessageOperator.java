@@ -326,11 +326,11 @@ public class DynamicFlightMessageOperator {
 					
 				}else if(status.equalsIgnoreCase("DEL")){
 					logger.info("Message ststus:{},update OperationStatus:{},update ELDT:{}",new Object[]{status,"DELET",arrStopEstimatedLandingDateTimeString});
-					comments.append("Update OperationStatus:").append("DELET").append(System.lineSeparator());
-					comments.append("Update ELDT:").append(arrStopEstimatedLandingDateTimeString).append(System.lineSeparator());
+					comments.append("ignore OperationStatus:").append("DELET").append(System.lineSeparator());
+					comments.append("ignore ELDT:").append(arrStopEstimatedLandingDateTimeString).append(System.lineSeparator());
 					fxbean.setEstimatedLandingDateTime(arrStopEstimatedLandingDateTime);					
 					fxbean.setOperationStatus("DELET");
-					fxbean.setXmlStatus(huDynamicHandle.getStatusDly());
+					fxbean.setXmlStatus("N");
 					xmlMessage =huDynamicHandle.createImfMessage(fxbean);
 				}else if(status.equalsIgnoreCase("RTR")){
 					logger.info("Message ststus:{},Ignore Return flight!",new Object[]{status});
@@ -340,9 +340,9 @@ public class DynamicFlightMessageOperator {
 					comments.append("Ignore Diversion flight!");
 				}else if(status.equalsIgnoreCase("CNL")){
 					logger.info("Message ststus:{},update OperationStatus:{}",new Object[]{"CNCL"});
-					comments.append("Update OperationStatus:").append("CNCL").append(System.lineSeparator());
+					comments.append("Ignore OperationStatus:").append("CNCL").append(System.lineSeparator());
 					fxbean.setOperationStatus("CNCL");
-					fxbean.setXmlStatus(huDynamicHandle.getStatusCnl());
+					fxbean.setXmlStatus("N");
 					xmlMessage =huDynamicHandle.createImfMessage(fxbean);
 				}else{
 					logger.info("Message ststus:{},Unknow status ignored!",new Object[]{status});
@@ -429,11 +429,11 @@ public class DynamicFlightMessageOperator {
 					
 				}else if(status.equalsIgnoreCase("DEL")){
 					logger.info("Message ststus:{},add OperationStatus:{}, add ETOT:{}",new Object[]{status,"DELET",depStopEstimatedTakeOffDateTimeString});				
-					comments.append("add OperationStatus:").append("DELET").append(System.lineSeparator());
-					comments.append("add ETOT:").append(depStopEstimatedTakeOffDateTimeString).append(System.lineSeparator());
+					comments.append("ignore OperationStatus:").append("DELET").append(System.lineSeparator());
+					comments.append("ignore ETOT:").append(depStopEstimatedTakeOffDateTimeString).append(System.lineSeparator());
 					fxbean.setEstimatedTakeOffDateTime(depStopEstimatedTakeOffDateTime);					
 					fxbean.setOperationStatus("DELET");
-					fxbean.setXmlStatus(huDynamicHandle.getStatusDly());
+					fxbean.setXmlStatus(huDynamicHandle.getStatusDel());
 					xmlMessage =huDynamicHandle.createImfMessage(fxbean);
 					
 				}else if(status.equalsIgnoreCase("RTR")){
@@ -516,11 +516,11 @@ public class DynamicFlightMessageOperator {
 					
 				}else if(status.equalsIgnoreCase("DEL")){
 					logger.info("Message ststus:{},update OperationStatus:{}, update ETOT:{}",new Object[]{status,"DELET",depStopEstimatedTakeOffDateTimeString});				
-					comments.append("Update OperationStatus:").append("DELET").append(System.lineSeparator());
-					comments.append("update ETOT:").append(depStopEstimatedTakeOffDateTimeString).append(System.lineSeparator());
+					comments.append("ignore OperationStatus:").append("DELET").append(System.lineSeparator());
+					comments.append("ignore ETOT:").append(depStopEstimatedTakeOffDateTimeString).append(System.lineSeparator());
 					fxbean.setEstimatedTakeOffDateTime(depStopEstimatedTakeOffDateTime);					
 					fxbean.setOperationStatus("DELET");
-					fxbean.setXmlStatus(huDynamicHandle.getStatusDly());
+					fxbean.setXmlStatus("N");
 					xmlMessage =huDynamicHandle.createImfMessage(fxbean);
 					
 				}else if(status.equalsIgnoreCase("RTR")){
@@ -533,9 +533,9 @@ public class DynamicFlightMessageOperator {
 					
 				}else if(status.equalsIgnoreCase("CNL")){
 					logger.info("Message ststus:{},update OperationStatus:{}",new Object[]{status,"CNCL"});				
-					comments.append("Update OperationStatus:").append("Delay").append(System.lineSeparator());
+					comments.append("ignore OperationStatus:").append("Delay").append(System.lineSeparator());
 					fxbean.setOperationStatus("CNCL");
-					fxbean.setXmlStatus(huDynamicHandle.getStatusCnl());
+					fxbean.setXmlStatus("N");
 					xmlMessage =huDynamicHandle.createImfMessage(fxbean);
 					
 				}else{
