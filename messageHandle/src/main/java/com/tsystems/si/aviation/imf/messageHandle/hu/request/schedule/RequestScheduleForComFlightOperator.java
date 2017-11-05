@@ -52,7 +52,15 @@ public class RequestScheduleForComFlightOperator {
 		String registration =jb.getString("acLongNo");
 		Date originalDateTime =jb.getDate("updateTime");
 		String orgRouting = jb.getString("airlineCode");		
-		String routing =airportDictionary.getNewIATARouting(orgRouting);
+		String routing =null;
+		if(orgRouting!=null && orgRouting!=""){
+			routing=airportDictionary.getNewIATARouting(orgRouting);
+		}
+		
+		
+		if(routing==null){
+			routing=depStop+"-"+arrStop;
+		}
 		//"stc":"J",
 		String stc = jb.getString("stc");
 		String serviceType = stcDictionary.getCAACStcByIATA(stc);
