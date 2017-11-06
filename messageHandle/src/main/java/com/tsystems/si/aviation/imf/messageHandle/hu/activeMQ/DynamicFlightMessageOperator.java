@@ -81,7 +81,14 @@ public class DynamicFlightMessageOperator {
 		String registration = jb.getString("acLongNo");
 		String orgRouting = jb.getString("airlineCode");
 		
-		String routing = airportDictionary.getNewIATARouting(orgRouting);
+		String routing = null;
+		if(orgRouting!=null && orgRouting !=""){
+			routing=airportDictionary.getNewIATARouting(orgRouting);
+		}else{
+			logger.info("airlineCode is null, use depStop and arrStop as routing:{}-{}",new Object[]{depStop,arrStop});
+			routing=depStop+"-"+arrStop;
+		}
+				
 		String stc = jb.getString("stc");
 		String serviceType = stcDictionary.getCAACStcByIATA(stc);
 		String status = jb.getString("status");
