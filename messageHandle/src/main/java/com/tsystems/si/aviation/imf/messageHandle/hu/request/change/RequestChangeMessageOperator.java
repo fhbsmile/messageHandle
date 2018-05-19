@@ -129,6 +129,7 @@ public class RequestChangeMessageOperator {
 			logger.error("Message Type is null! ignored");
 			
 		}else{
+			logger.info("MessageEnglishType:{}",changeType);
 			if(direction.equalsIgnoreCase("A")){
 				
 /*				Map<String,Object> params = new HashMap<String,Object>();
@@ -154,12 +155,21 @@ public class RequestChangeMessageOperator {
 					if(changeType.equals("NewAdd")){
 						logger.info("MessageType:{},Ignore!",new Object[]{changeType});
 						comments.append("Ignore!").append(System.lineSeparator());
-					}else if(changeType.equals("Change")){						
+					}else if(changeType.equals("Change")||changeType.equals("ChangeAC")||changeType.equals("ChangeTimeAC")){						
 						logger.info("MessageType:{},update registration:{}",new Object[]{changeType,registrationNew});
 						comments.append("update new registration:").append(registrationNew).append(System.lineSeparator());
 						fxbean.setRegistration(registrationNew);
 						fxbean.setXmlStatus(huChangeHandle.getStatusMod());
 					    xmlMessage =huChangeHandle.createImfMessage(fxbean);
+					}else if(changeType.equals("ChangeACT")){
+						logger.info("MessageType:{},Ignore!",new Object[]{changeType});
+						comments.append("Ignore!").append(System.lineSeparator());
+					}else if(changeType.equals("ChangeTime")){
+						logger.info("MessageType:{},Ignore!",new Object[]{changeType});
+						comments.append("Ignore!").append(System.lineSeparator());
+					}else if(changeType.equals("ChangeTimeACT")){
+						logger.info("MessageType:{},Ignore!",new Object[]{changeType});
+						comments.append("Ignore!").append(System.lineSeparator());
 					}else if(changeType.equals("Delay")){
 						logger.info("MessageType:{},update OperationStatus:{}",new Object[]{changeType,"DELET"});
 						comments.append("update OperationStatus:").append("DELET").append(System.lineSeparator());
@@ -168,12 +178,15 @@ public class RequestChangeMessageOperator {
 						//fxbean.setEstimatedLandingDateTime(estimatedLandingDateTime);
 						fxbean.setXmlStatus(huChangeHandle.getStatusDly());
 					    xmlMessage =huChangeHandle.createImfMessage(fxbean);
-					}else if(changeType.equals("ChangeDelay")){
+					}else if(changeType.equals("ChangeDelay")||changeType.equals("ChangeDelayAC")){
 						logger.info("MessageType:{},update registration:{}",new Object[]{changeType,registrationNew});
 						comments.append("update new registration:").append(registrationNew).append(System.lineSeparator());
 						fxbean.setRegistration(registrationNew);
 						fxbean.setXmlStatus(huChangeHandle.getStatusMod());
 					    xmlMessage =huChangeHandle.createImfMessage(fxbean);
+					}else if(changeType.equals("ChangeDelayACT")){
+						logger.info("MessageType:{},Ignore!",new Object[]{changeType});
+						comments.append("Ignore!").append(System.lineSeparator());
 					}else if(changeType.equals("Cancel")){
 						logger.info("MessageType:{},update OperationStatus:{}",new Object[]{changeType,"CNCL"});
 						comments.append("update OperationStatus:").append("CNCL").append(System.lineSeparator());
@@ -195,6 +208,15 @@ public class RequestChangeMessageOperator {
 					}else if(changeType.equals("ChangeEarly")){
 						logger.info("MessageType:{},Ignore!",new Object[]{changeType});
 						comments.append("Ignore!").append(System.lineSeparator());
+					}else if(changeType.equals("ChangeEarlyACT")){
+						logger.info("MessageType:{},Ignore!",new Object[]{changeType});
+						comments.append("Ignore!").append(System.lineSeparator());
+					}else if(changeType.equals("ChangeEarlyAC")){
+						logger.info("MessageType:{},update registration:{}",new Object[]{changeType,registrationNew});
+						comments.append("update new registration:").append(registrationNew).append(System.lineSeparator());
+						fxbean.setRegistration(registrationNew);
+						fxbean.setXmlStatus(huChangeHandle.getStatusMod());
+					    xmlMessage =huChangeHandle.createImfMessage(fxbean);
 					}else if(changeType.equals("RecoveryEarly")){
 						logger.info("MessageType:{},Ignore!",new Object[]{changeType});
 						comments.append("Ignore!").append(System.lineSeparator());
@@ -241,12 +263,21 @@ public class RequestChangeMessageOperator {
 					if(changeType.equals("NewAdd")){
 						logger.info("MessageType:{},Ignore!",new Object[]{changeType});
 						comments.append("Ignore!").append(System.lineSeparator());
-					}else if(changeType.equals("Change")){						
+					}else if(changeType.equals("Change")||changeType.equals("ChangeAC")||changeType.equals("ChangeTimeAC")){						
 						logger.info("MessageType:{},update registration:{}",new Object[]{changeType,registrationNew});
 						comments.append("update new registration:").append(registrationNew).append(System.lineSeparator());
 						fxbean.setRegistration(registrationNew);
 						fxbean.setXmlStatus(huChangeHandle.getStatusMod());
 					    xmlMessage =huChangeHandle.createImfMessage(fxbean);
+					}else if(changeType.equals("ChangeACT")){
+						logger.info("MessageType:{},Ignore!",new Object[]{changeType});
+						comments.append("Ignore!").append(System.lineSeparator());
+					}else if(changeType.equals("ChangeTime")){
+						logger.info("MessageType:{},Ignore!",new Object[]{changeType});
+						comments.append("Ignore!").append(System.lineSeparator());
+					}else if(changeType.equals("ChangeTimeACT")){
+						logger.info("MessageType:{},Ignore!",new Object[]{changeType});
+						comments.append("Ignore!").append(System.lineSeparator());
 					}else if(changeType.equals("Delay")){
 						logger.info("MessageType:{},update OperationStatus:{}",new Object[]{changeType,"DELET"});
 						comments.append("update OperationStatus:").append("Delay").append(System.lineSeparator());
@@ -255,12 +286,15 @@ public class RequestChangeMessageOperator {
 						//fxbean.setEstimatedTakeOffDateTime(estimatedTakeOffDateTime);
 						fxbean.setXmlStatus(huChangeHandle.getStatusDly());
 					    xmlMessage =huChangeHandle.createImfMessage(fxbean);
-					}else if(changeType.equals("ChangeDelay")){
+					}else if(changeType.equals("ChangeDelay")||changeType.equals("ChangeDelayAC")){
 						logger.info("MessageType:{},update registration:{}",new Object[]{changeType,registrationNew});
 						comments.append("update new registration:").append(registrationNew).append(System.lineSeparator());
 						fxbean.setRegistration(registrationNew);
 						fxbean.setXmlStatus(huChangeHandle.getStatusMod());
 					    xmlMessage =huChangeHandle.createImfMessage(fxbean);
+					}else if(changeType.equals("ChangeDelayACT")){
+						logger.info("MessageType:{},Ignore!",new Object[]{changeType});
+						comments.append("Ignore!").append(System.lineSeparator());
 					}else if(changeType.equals("Cancel")){
 						logger.info("MessageType:{},update OperationStatus:{}",new Object[]{changeType,"CNCL"});
 						comments.append("update OperationStatus:").append("CNCL").append(System.lineSeparator());
@@ -282,6 +316,15 @@ public class RequestChangeMessageOperator {
 					}else if(changeType.equals("ChangeEarly")){
 						logger.info("MessageType:{},Ignore!",new Object[]{changeType});
 						comments.append("Ignore!").append(System.lineSeparator());
+					}else if(changeType.equals("ChangeEarlyACT")){
+						logger.info("MessageType:{},Ignore!",new Object[]{changeType});
+						comments.append("Ignore!").append(System.lineSeparator());
+					}else if(changeType.equals("ChangeEarlyAC")){
+						logger.info("MessageType:{},update registration:{}",new Object[]{changeType,registrationNew});
+						comments.append("update new registration:").append(registrationNew).append(System.lineSeparator());
+						fxbean.setRegistration(registrationNew);
+						fxbean.setXmlStatus(huChangeHandle.getStatusMod());
+					    xmlMessage =huChangeHandle.createImfMessage(fxbean);
 					}else if(changeType.equals("RecoveryEarly")){
 						logger.info("MessageType:{},Ignore!",new Object[]{changeType});
 						comments.append("Ignore!").append(System.lineSeparator());
@@ -352,10 +395,24 @@ public class RequestChangeMessageOperator {
 				type="NewAdd";
 			}else if(messageType.equals("变更")){
 				type="Change";
+			}else if(messageType.equals("机型变更")){
+				type="ChangeACT";
+			}else if(messageType.equals("机号变更")){
+				type="ChangeAC";
+			}else if(messageType.equals("时刻变更")){
+				type="ChangeTime";
+			}else if(messageType.equals("机型及时刻变更")){
+				type="ChangeTimeACT";
+			}else if(messageType.equals("机号及时刻变更")){
+				type="ChangeTimeAC";
 			}else if(messageType.equals("延误")){
 				type="Delay";
 			}else if(messageType.equals("变更延误")){
 				type="ChangeDelay";
+			}else if(messageType.equals("机型变更及延误")){
+				type="ChangeDelayACT";
+			}else if(messageType.equals("机号变更及延误")){
+				type="ChangeDelayAC";
 			}else if(messageType.equals("取消")){
 				type="Cancel";
 			}else if(messageType.equals("备降")){
@@ -368,6 +425,10 @@ public class RequestChangeMessageOperator {
 				type="Early";
 			}else if(messageType.equals("变更提前")){
 				type="ChangeEarly";
+			}else if(messageType.equals("机型变更及提前")){
+				type="ChangeEarlyACT";
+			}else if(messageType.equals("机号变更及提前")){
+				type="ChangeEarlyAC";
 			}else if(messageType.equals("恢复提前")){
 				type="RecoveryEarly";
 			}
