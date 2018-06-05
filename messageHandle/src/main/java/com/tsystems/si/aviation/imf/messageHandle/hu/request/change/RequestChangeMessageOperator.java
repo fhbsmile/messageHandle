@@ -155,15 +155,12 @@ public class RequestChangeMessageOperator {
 					if(changeType.equals("NewAdd")){
 						logger.info("MessageType:{},Ignore!",new Object[]{changeType});
 						comments.append("Ignore!").append(System.lineSeparator());
-					}else if(changeType.equals("Change")||changeType.equals("ChangeAC")||changeType.equals("ChangeTimeAC")){						
+					}else if(changeType.equals("Change")||changeType.equals("ChangeAC")||changeType.equals("ChangeTimeAC")||changeType.equals("ChangeACT")){						
 						logger.info("MessageType:{},update registration:{}",new Object[]{changeType,registrationNew});
 						comments.append("update new registration:").append(registrationNew).append(System.lineSeparator());
 						fxbean.setRegistration(registrationNew);
 						fxbean.setXmlStatus(huChangeHandle.getStatusMod());
 					    xmlMessage =huChangeHandle.createImfMessage(fxbean);
-					}else if(changeType.equals("ChangeACT")){
-						logger.info("MessageType:{},Ignore!",new Object[]{changeType});
-						comments.append("Ignore!").append(System.lineSeparator());
 					}else if(changeType.equals("ChangeTime")){
 						logger.info("MessageType:{},Ignore!",new Object[]{changeType});
 						comments.append("Ignore!").append(System.lineSeparator());
@@ -178,15 +175,12 @@ public class RequestChangeMessageOperator {
 						//fxbean.setEstimatedLandingDateTime(estimatedLandingDateTime);
 						fxbean.setXmlStatus(huChangeHandle.getStatusDly());
 					    xmlMessage =huChangeHandle.createImfMessage(fxbean);
-					}else if(changeType.equals("ChangeDelay")||changeType.equals("ChangeDelayAC")){
+					}else if(changeType.equals("ChangeDelay")||changeType.equals("ChangeDelayAC")||changeType.equals("ChangeDelayACT")){
 						logger.info("MessageType:{},update registration:{}",new Object[]{changeType,registrationNew});
 						comments.append("update new registration:").append(registrationNew).append(System.lineSeparator());
 						fxbean.setRegistration(registrationNew);
 						fxbean.setXmlStatus(huChangeHandle.getStatusMod());
 					    xmlMessage =huChangeHandle.createImfMessage(fxbean);
-					}else if(changeType.equals("ChangeDelayACT")){
-						logger.info("MessageType:{},Ignore!",new Object[]{changeType});
-						comments.append("Ignore!").append(System.lineSeparator());
 					}else if(changeType.equals("Cancel")){
 						logger.info("MessageType:{},update OperationStatus:{}",new Object[]{changeType,"CNCL"});
 						comments.append("update OperationStatus:").append("CNCL").append(System.lineSeparator());
@@ -263,15 +257,12 @@ public class RequestChangeMessageOperator {
 					if(changeType.equals("NewAdd")){
 						logger.info("MessageType:{},Ignore!",new Object[]{changeType});
 						comments.append("Ignore!").append(System.lineSeparator());
-					}else if(changeType.equals("Change")||changeType.equals("ChangeAC")||changeType.equals("ChangeTimeAC")){						
+					}else if(changeType.equals("Change")||changeType.equals("ChangeAC")||changeType.equals("ChangeTimeAC")||changeType.equals("ChangeACT")){						
 						logger.info("MessageType:{},update registration:{}",new Object[]{changeType,registrationNew});
 						comments.append("update new registration:").append(registrationNew).append(System.lineSeparator());
 						fxbean.setRegistration(registrationNew);
 						fxbean.setXmlStatus(huChangeHandle.getStatusMod());
 					    xmlMessage =huChangeHandle.createImfMessage(fxbean);
-					}else if(changeType.equals("ChangeACT")){
-						logger.info("MessageType:{},Ignore!",new Object[]{changeType});
-						comments.append("Ignore!").append(System.lineSeparator());
 					}else if(changeType.equals("ChangeTime")){
 						logger.info("MessageType:{},Ignore!",new Object[]{changeType});
 						comments.append("Ignore!").append(System.lineSeparator());
@@ -286,15 +277,12 @@ public class RequestChangeMessageOperator {
 						//fxbean.setEstimatedTakeOffDateTime(estimatedTakeOffDateTime);
 						fxbean.setXmlStatus(huChangeHandle.getStatusDly());
 					    xmlMessage =huChangeHandle.createImfMessage(fxbean);
-					}else if(changeType.equals("ChangeDelay")||changeType.equals("ChangeDelayAC")){
+					}else if(changeType.equals("ChangeDelay")||changeType.equals("ChangeDelayAC")||changeType.equals("ChangeDelayACT")){
 						logger.info("MessageType:{},update registration:{}",new Object[]{changeType,registrationNew});
 						comments.append("update new registration:").append(registrationNew).append(System.lineSeparator());
 						fxbean.setRegistration(registrationNew);
 						fxbean.setXmlStatus(huChangeHandle.getStatusMod());
 					    xmlMessage =huChangeHandle.createImfMessage(fxbean);
-					}else if(changeType.equals("ChangeDelayACT")){
-						logger.info("MessageType:{},Ignore!",new Object[]{changeType});
-						comments.append("Ignore!").append(System.lineSeparator());
 					}else if(changeType.equals("Cancel")){
 						logger.info("MessageType:{},update OperationStatus:{}",new Object[]{changeType,"CNCL"});
 						comments.append("update OperationStatus:").append("CNCL").append(System.lineSeparator());

@@ -44,7 +44,7 @@
         <property name="updateDateTime" type="timestamp">
             <column name="UpdateDateTime" length="19" />
         </property>
-        <set name="imfMessages" table="imf_message" inverse="true" lazy="true" fetch="select" cascade="save-update">
+        <set name="imfMessages" table="imf_message" inverse="true" lazy="true" fetch="select" cascade="delete">
             <key>
                 <column name="MessageID" />
             </key>

@@ -40,60 +40,64 @@ public class RequestChange {
     //String requestFlightDate ="2016-05-11";
 	
 	public void request(){
-		Date now = new Date();
-		String requestStartString = JSON.toJSONString(now, SerializerFeature.WriteDateUseDateFormat);
-		logger.info(">>>>>>>>>Request Satrt Date Time:{}",requestStartString);
-		if(requestSubTimeFrom==null){
-			Date calFrom = TimeHandle.dateAddMinutes(now, intiMiniteOffset);
-			requestSubTimeFrom = JSON.toJSONString(calFrom, SerializerFeature.WriteDateUseDateFormat).replace("\"", "");
-			logger.info("requestSubTimeFrom is null, calculated value is :{}",requestSubTimeFrom);
-		}
-		requestSubTimeTo = JSON.toJSONString(now, SerializerFeature.WriteDateUseDateFormat).replace("\"", "");
-		logger.info("Request change period is :{}-{}",new Object[]{requestSubTimeFrom,requestSubTimeTo});
-		FindFltLegsChangesDetailRequest findFltLegsChangesDetailRequest = new FindFltLegsChangesDetailRequest();
-		//findFltLegsChangesDetailRequest.setFltDate(requestFlightDate);
-		
-		findFltLegsChangesDetailRequest.setSubTimeFrom(requestSubTimeFrom);
-		findFltLegsChangesDetailRequest.setSubTimeTo(requestSubTimeTo);
-		
-		//findFltLegsChangesDetailRequest.setSubTimeFrom(requestSubTimeFrom);
-		//findFltLegsChangesDetailRequest.setSubTimeTo(requestSubTimeTo);
-		PageParam pageParam = new PageParam();
-		pageParam.setPageSize(500);
-
-		findFltLegsChangesDetailRequest.setPageParam(pageParam);
-		
-		FindFltLegsChangesDetailResponse findFltLegsChangesDetailResponse =fltLegsChangeApi.findFltLegsChangesDetail(findFltLegsChangesDetailRequest);
-		Result requestChangeResult = findFltLegsChangesDetailResponse.getResult();
-		int resultCode = requestChangeResult.getResultCode();
-		String resultString = requestChangeResult.getResultMsg();
-		logger.info("Request result:{}",JSON.toJSONString(requestChangeResult,true));
-		List<FltLegsChangeDetail> flightLegsChangeDetailList = findFltLegsChangesDetailResponse.getFltLegsChangeDetail();
-		int cnt = flightLegsChangeDetailList.size();
-			if(cnt>0){
-				logger.info("Received {} records.",cnt);
-				for(int i=0;i<cnt;i++){
-					FltLegsChangeDetail flcd = flightLegsChangeDetailList.get(i);
-					String fltLegsChangeDetailJsonString = JSON.toJSONString(flcd);
-					String arrStop = flcd.getArrStn();
-					String depStop = flcd.getDepStn();					
-					logger.info("message number {}:{}",new Object[]{i,fltLegsChangeDetailJsonString});
-					logger.info("depStop:{}, arrStop:{}",new Object[]{depStop,arrStop});
-					if(arrStop==null || depStop==null){
-						logger.error("Ignore message, Has null stop! {}-{}",new Object[]{depStop,arrStop});
-					}else{
-						if(arrStop.equalsIgnoreCase(TelexConstant.default_baseAirportIATA) || depStop.equalsIgnoreCase(TelexConstant.default_baseAirportIATA)){
-							requestChangeMessageOperator.process(fltLegsChangeDetailJsonString);
-						}else{
-							logger.warn("Ignore message, No baseAirport! {}-{}",new Object[]{depStop,arrStop});
-						}
-					}
+		try {
+				Date now = new Date();
+				String requestStartString = JSON.toJSONString(now, SerializerFeature.WriteDateUseDateFormat);
+				logger.info(">>>>>>>>>Request Satrt Date Time:{}",requestStartString);
+				if(requestSubTimeFrom==null){
+					Date calFrom = TimeHandle.dateAddMinutes(now, intiMiniteOffset);
+					requestSubTimeFrom = JSON.toJSONString(calFrom, SerializerFeature.WriteDateUseDateFormat).replace("\"", "");
+					logger.info("requestSubTimeFrom is null, calculated value is :{}",requestSubTimeFrom);
 				}
-			}else{
-				logger.info("No changes received!");
-			}
-			Date calFromT = TimeHandle.dateAddMinutes(now, -1);
-			requestSubTimeFrom = JSON.toJSONString(calFromT, SerializerFeature.WriteDateUseDateFormat).replace("\"", "");
+				requestSubTimeTo = JSON.toJSONString(now, SerializerFeature.WriteDateUseDateFormat).replace("\"", "");
+				logger.info("Request change period is :{}-{}",new Object[]{requestSubTimeFrom,requestSubTimeTo});
+				FindFltLegsChangesDetailRequest findFltLegsChangesDetailRequest = new FindFltLegsChangesDetailRequest();
+				//findFltLegsChangesDetailRequest.setFltDate(requestFlightDate);
+				
+				findFltLegsChangesDetailRequest.setSubTimeFrom(requestSubTimeFrom);
+				findFltLegsChangesDetailRequest.setSubTimeTo(requestSubTimeTo);
+				
+				//findFltLegsChangesDetailRequest.setSubTimeFrom(requestSubTimeFrom);
+				//findFltLegsChangesDetailRequest.setSubTimeTo(requestSubTimeTo);
+				PageParam pageParam = new PageParam();
+				pageParam.setPageSize(500);
+		
+				findFltLegsChangesDetailRequest.setPageParam(pageParam);
+				
+				FindFltLegsChangesDetailResponse findFltLegsChangesDetailResponse =fltLegsChangeApi.findFltLegsChangesDetail(findFltLegsChangesDetailRequest);
+				Result requestChangeResult = findFltLegsChangesDetailResponse.getResult();
+				int resultCode = requestChangeResult.getResultCode();
+				String resultString = requestChangeResult.getResultMsg();
+				logger.info("Request result:{}",JSON.toJSONString(requestChangeResult,true));
+				List<FltLegsChangeDetail> flightLegsChangeDetailList = findFltLegsChangesDetailResponse.getFltLegsChangeDetail();
+				int cnt = flightLegsChangeDetailList.size();
+					if(cnt>0){
+						logger.info("Received {} records.",cnt);
+						for(int i=0;i<cnt;i++){
+							FltLegsChangeDetail flcd = flightLegsChangeDetailList.get(i);
+							String fltLegsChangeDetailJsonString = JSON.toJSONString(flcd);
+							String arrStop = flcd.getArrStn();
+							String depStop = flcd.getDepStn();					
+							logger.info("message number {}:{}",new Object[]{i,fltLegsChangeDetailJsonString});
+							logger.info("depStop:{}, arrStop:{}",new Object[]{depStop,arrStop});
+							if(arrStop==null || depStop==null){
+								logger.error("Ignore message, Has null stop! {}-{}",new Object[]{depStop,arrStop});
+							}else{
+								if(arrStop.equalsIgnoreCase(TelexConstant.default_baseAirportIATA) || depStop.equalsIgnoreCase(TelexConstant.default_baseAirportIATA)){
+									requestChangeMessageOperator.process(fltLegsChangeDetailJsonString);
+								}else{
+									logger.warn("Ignore message, No baseAirport! {}-{}",new Object[]{depStop,arrStop});
+								}
+							}
+						}
+					}else{
+						logger.info("No changes received!");
+					}
+					Date calFromT = TimeHandle.dateAddMinutes(now, -1);
+					requestSubTimeFrom = JSON.toJSONString(calFromT, SerializerFeature.WriteDateUseDateFormat).replace("\"", "");
+		}catch(Exception e) {
+			logger.error(e.getMessage(), e);
+		}
 	}
 
 	public FltLegsChangeApi getFltLegsChangeApi() {
